@@ -1,0 +1,40 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    <span appChangeText t>Welcome to {{ title | uppercase }}!</span>
+  </h1>
+</div>
+<div>Months:
+  <select (change)="changemonths($event)">
+    <option *ngFor="let i of months">{{i}}</option>
+  </select>
+</div>
+<div>Datepipe:{{todaydate | date}}</div>
+<div>Datepipe:{{todaydate | date:'d/M/y'}}</div>
+<div>Datepipe:{{todaydate | date:'shortTime'}}</div>
+<div>Currency:{{749 | currency}}</div>
+<div>Currency:{{749 | currency:"INR"}}</div>
+<div>Currency:{{749 | currency:"INR":false}}</div>
+<div>Decimal:{{ 454.78787814 | number: '1.5-5' }}</div>
+<div>
+  <h1>Json Pipe</h1>
+  <b>{{ jsonval | json }}</b>
+  <h1>Percent Pipe</h1>
+  <b>{{00.54565 | percent}}</b>
+  <h1>Slice Pipe</h1>
+  <b>{{months | slice:2:8}}</b>
+  // here 2 and 8 refers to the start and the end index
+</div>
+<div>Square root of 25 is: {{25 | sqrt}}</div>
+<div>
+  <!--<span *ngIf="isavailable; then condition1 else condition2">condition is valid</span>-->
+  <span *ngIf="isavailable; else condition2">condition is valid</span>
+  <ng-template #condition1>condition in valid from template</ng-template>
+  <ng-template #condition2>condition in invalid from template</ng-template>
+</div>
+<button (click) = "myClickFunction($event)">Click Me</button>
+<!--<app-new-cmp></app-new-cmp>-->
+<a routerLink="new-cmp">Newcomponent</a>
+
+{{todaydate}}
+<router-outlet></router-outlet>
